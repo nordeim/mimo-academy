@@ -201,6 +201,5 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 5.  **Dark Mode Toggle**: UI switch for theme preference
 6.  **Contact Form**: Inquiry and feedback forms
 
----
 
 **Initialize new Gemini instance with this context for 100% architectural alignment.**

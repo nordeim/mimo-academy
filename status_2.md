@@ -714,3 +714,77 @@ QA Issues	✅ All resolved
 Documentation	✅ 5 files updated
 All documentation is now 100% aligned with the current codebase state! 🚀
 
+---
+
+✦ Aligning the Gemini Brief I've meticulously reviewed all relevant project documents and validated the current codebase. My findings confirm that the project is now a full-stack, production-ready application with full API integration,
+  an enhanced design system, and verified E2E testing. I have updated GEMINI.md to perfectly align with this state.
+  [Thought: true]I have meticulously reviewed the ACCOMPLISHMENTS.md, status.md, status_2.md, CLAUDE.md, Project_Architecture_Document.md, FRONTEND_API_INTEGRATION_PLAN.md, QA_REMEDIATION_PLAN.md, QA_REMEDIATION_PLAN_2.md,
+  QA_E2E_TEST_PLAN.md, and STATIC_ASSETS_REMEDIATION.md files to capture the comprehensive evolution of the iTrust Academy project.
+
+  I've validated these updates against the actual codebase, confirming:
+   * API Infrastructure: Presence of src/services/api/, src/store/useAuthStore.ts, and src/providers/QueryProvider.tsx.
+   * Server Configuration: Correct port (5174) and proxy settings in vite.config.ts.
+   * QA Remediation: Successful implementation of scroll utilities in src/lib/utils.ts and the GraduationCap logo fix in layout components.
+   * Operational Stability: Verified that the app passes both npm run lint and npm run build.
+
+  I have updated GEMINI.md to serve as the definitive master briefing, now including:
+   1. Full-Stack Architectural Map: Updated to reflect the integrated API layer and state management.
+   2. API Integration Protocol: Clear rules for data mapping, auth, and state management.
+   3. Modern Workflow SOP: Refined server configuration and Playwright-based E2E testing.
+   4. Complete Remediation History: A detailed record of all technical debt and QA fixes applied to date.
+   5. Refined Roadmap: Accurate next steps for dynamic routing and user authentication UI.
+
+  The GEMINI.md file is now 100% aligned with the project's current, production-ready state.
+
+---
+
+✦ I have verified that GEMINI.md has been successfully updated with the latest information about the codebase. 
+
+  The document now accurately reflects the current state of the project, including:
+   * Full-Stack Tech Stack: Explicitly mentions React 19, Vite 8, Tailwind CSS v4, and the Django REST API.
+   * Updated Architecture: Includes the new src/services/api/ layer, src/store/useAuthStore.ts, and src/providers/QueryProvider.tsx.
+   * API Integration Protocol: Confirms that integration is ✅ COMPLETE and defines the rules for data mapping (snake_case to camelCase) and authentication.
+   * Server Configuration: Documents the move to port 5174 and the addition of allowedHosts and proxy settings in vite.config.ts.
+   * QA & E2E Status: Records the 100% E2E test pass rate (14/14) and the resolution of all QA issues, including logo duplication, CTA wiring, and the favicon 404 fix.
+   * Comprehensive History: A detailed list of the nine key remediation steps taken to stabilize and modernize the codebase.
+
+  This ensures that any future Gemini instance or developer will have a 100% accurate single source of truth to handle new PRs independently.
+
+---
+
+✦ The changes I added to GEMINI.md represent a complete transition from a "frontend-only" briefing to a "full-stack integrated" operational manual. 
+
+  Here are the specific new sections and updates I implemented:
+
+  1. Architectural Updates
+   * API Layer: Added the complete src/services/api/ directory structure, including client.ts, transformers.ts, and individual service files.
+   * State Management: Added src/store/useAuthStore.ts (Zustand) and src/providers/QueryProvider.tsx (React Query) to the core map.
+   * Data Flows: Updated the data flow diagram to show the path from Django REST API → Axios Client → React Query → Components.
+
+  2. 🔗 Backend API Integration Protocol (New Section)
+   * Integration Status: Formally marked as ✅ COMPLETE.
+   * Strict Rules: Established mandatory rules for snake_case to camelCase transformation and automated JWT injection via interceptors.
+   * Endpoints: Documented the primary connected endpoints for Courses, Categories, Auth, and User Profiles.
+
+  3. Server & Environment Configuration
+   * Port Change: Updated the official development port from 5173 to 5174.
+   * Security: Added the allowedHosts configuration for the itrust-academy.jesspete.shop domain.
+   * Proxy Logic: Documented the Vite proxy setup for local backend communication.
+
+  4. QA & E2E Verification Status
+   * E2E Results: Recorded the 100% pass rate (14/14) across all suites.
+   * QA Fixes: Added a checklist of resolved issues:
+       * Logo duplication (fixed via GraduationCap icon).
+       * Functional CTAs (11/11 wired with scrollToSection).
+       * Favicon 404 Fix: Changed from /vite.svg to /favicon.svg.
+       * Header font size increased to 14px.
+
+  5. Expanded Remediation History
+   * Added items #6 through #9 to the "Critical Decisions" list, specifically covering the API Layer setup, Logo icon refactoring, CTA navigation utilities, and the Static asset path correction.
+
+  6. Roadmap Refinement
+   * Moved "Full API Integration", "Zustand Auth Store", and "E2E Testing" to the ✅ Completed section.
+   * Added "Course Detail Pages" and "User Authentication UI" as the next high-priority planned tasks.
+
+  These changes transform GEMINI.md into a real-time reflection of the current v1.1.0 state of the project.
+
