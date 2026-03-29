@@ -131,12 +131,13 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 ```
 
 ### E2E Testing Status
-- ✅ 9 test cases executed
+- ✅ 14 test cases executed
 - ✅ 9 screenshots captured (desktop, mobile, tablet)
 - ✅ Page load verified
 - ✅ Hero section renders correctly
 - ✅ Navigation functional
 - ✅ Mobile responsive (375px, 768px, 1440px)
+- ✅ **100% E2E test pass rate (14/14)**
 
 ### QA Remediation Status
 - ✅ Logo duplication bug fixed (header & footer)
@@ -144,6 +145,8 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 - ✅ Header button text increased to 14px
 - ✅ Accessibility labels added to decorative icons
 - ✅ Scroll utility functions implemented
+- ✅ Favicon 404 error fixed (vite.svg → favicon.svg)
+- ✅ No static asset 404 errors
 
 ### Deployment Checklist
 - [x] Build generated in `dist/`
@@ -153,6 +156,8 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 - [x] API integration verified with live backend
 - [x] All CTAs functional (11/11)
 - [x] Logo renders correctly without duplication
+- [x] Favicon loads without 404 errors
+- [x] 100% E2E test pass rate
 
 ---
 
@@ -166,6 +171,7 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 6.  **API Integration**: Complete frontend API layer with Axios, React Query, and Zustand for JWT management.
 7.  **Logo Fix**: Changed icon from `<span>i</span>` to `<GraduationCap>` Lucide icon to prevent "iiTrust Academy" duplication.
 8.  **CTA Wiring**: Added `scrollToSection()` utility and onClick handlers to all interactive buttons.
+9.  **Favicon Fix**: Changed favicon reference from `/vite.svg` (bundled) to `/favicon.svg` (public folder) to resolve 404 error.
 
 ---
 

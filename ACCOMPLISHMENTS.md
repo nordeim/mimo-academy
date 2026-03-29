@@ -216,6 +216,8 @@ src/providers/
 - [x] Logo duplication bug fixed (header & footer)
 - [x] Accessibility labels added to icons
 - [x] Header button text increased to 14px
+- [x] Favicon 404 error fixed (vite.svg → favicon.svg)
+- [x] 100% E2E test pass rate achieved (14/14)
 
 ### In Progress 🔄
 - [ ] Mobile menu interaction refinements
@@ -245,6 +247,7 @@ src/providers/
 | Non-functional CTAs | Added onClick handlers with scrollToSection | ✅ |
 | Small button text | Changed header CTA from size="sm" to size="default" | ✅ |
 | Missing accessibility | Added aria-hidden to decorative icons | ✅ |
+| Favicon 404 error | Changed reference from `/vite.svg` to `/favicon.svg` | ✅ |
 
 ---
 

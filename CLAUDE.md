@@ -290,6 +290,8 @@ server: {
 5. ✅ All CTA buttons wired with onClick handlers (11/11)
 6. ✅ Header button text size increased (12px → 14px)
 7. ✅ Accessibility labels added to decorative icons
+8. ✅ Favicon 404 error fixed (vite.svg → favicon.svg)
+9. ✅ 100% E2E test pass rate achieved (14/14)
 
 ### Current State
 - All lint checks pass
@@ -298,6 +300,8 @@ server: {
 - Animations work with Framer Motion
 - All CTAs are functional
 - Logo renders correctly (no duplication)
+- Favicon loads correctly (no 404 errors)
+- **E2E Test Pass Rate: 100% (14/14)**
 
 ### Scroll Utility Functions
 ```typescript
@@ -310,6 +314,11 @@ scrollToSection("contact")
 // Scroll to top
 scrollToTop()
 ```
+
+### Static Assets Note
+- Favicon: `/favicon.svg` (in public/ folder)
+- Vite copies files from `public/` to dist root
+- Files in `src/assets/` are bundled, not copied to root
 
 ### Potential Improvements
 - [ ] Add unit tests with Vitest

@@ -473,6 +473,9 @@ server: {
 | Non-functional CTAs | Added onClick handlers (11/11) | ✅ Fixed |
 | Small button text | Increased to 14px | ✅ Fixed |
 | Missing accessibility | Added aria-hidden to icons | ✅ Fixed |
+| Favicon 404 error | Changed from `/vite.svg` to `/favicon.svg` | ✅ Fixed |
+
+**E2E Test Results**: 14/14 passed (100% pass rate)
 
 **Utility Functions**:
 ```typescript
@@ -500,6 +503,11 @@ export function scrollToTop(): void {
 | SCHEDULE CONSULTATION | scrollToSection("contact") |
 | ENROLL NOW | scrollToSection("courses") |
 | VIEW FULL TRAINING CALENDAR | scrollToSection("schedule") |
+
+### 9.1.4 Static Assets
+**Favicon**: `/favicon.svg` (in `public/` folder)
+- Vite copies files from `public/` to dist root
+- Files in `src/assets/` are bundled, not copied to root
 
 ### 9.2 Backend Initialization
 1.  **Start Docker**: `docker-compose up -d` (PostgreSQL, Redis, MinIO)
