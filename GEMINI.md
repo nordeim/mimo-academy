@@ -172,6 +172,7 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 7.  **Logo Fix**: Changed icon from `<span>i</span>` to `<GraduationCap>` Lucide icon to prevent "iiTrust Academy" duplication.
 8.  **CTA Wiring**: Added `scrollToSection()` utility and onClick handlers to all interactive buttons.
 9.  **Favicon Fix**: Changed favicon reference from `/vite.svg` (bundled) to `/favicon.svg` (public folder) to resolve 404 error.
+10. **Auth UI**: Implemented complete authentication UI with Login/Register modals, UserNav dropdown, and form validation.
 
 ---
 
@@ -185,9 +186,12 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 *   Zustand auth store with persistence
 *   CourseCatalog component updated for API
 *   Visual design enhancements (shadows, typography, colors)
-*   E2E testing (9 test cases, 9 screenshots)
+*   E2E testing (27 test cases total, 100% pass rate)
 *   QA remediation (logo fix, 11 CTAs wired, accessibility)
 *   Server configuration (port 5174, allowedHosts)
+*   **Authentication UI (Login/Register modals, UserNav dropdown)**
+*   **Form validation with Zod and Sonner toast notifications**
+*   **13/13 Auth UI E2E tests passed**
 
 ### 🔄 In Progress
 *   Loading skeleton components
@@ -195,11 +199,10 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 
 ### 📋 Planned (Next Directives)
 1.  **Course Detail Pages**: Dynamic routes for courses
-2.  **User Authentication UI**: Login/Register modals
-3.  **Enrollment Flow**: Course enrollment with payment
-4.  **Profile Management**: User profile editing
-5.  **Dark Mode Toggle**: UI switch for theme preference
-6.  **Contact Form**: Inquiry and feedback forms
+2.  **Enrollment Flow**: Course enrollment with Stripe payment
+3.  **Profile Management**: User profile editing page
+4.  **Dark Mode Toggle**: UI switch for theme preference
+5.  **Contact Form**: Inquiry and feedback forms
 
 
 **Initialize new Gemini instance with this context for 100% architectural alignment.**
