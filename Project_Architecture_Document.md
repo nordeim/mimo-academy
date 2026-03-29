@@ -464,6 +464,43 @@ server: {
 | Course Catalog | 5 | ✅ Pass |
 | Mobile Responsive | 3 | ✅ Pass |
 
+### 9.1.3 QA Remediation
+**Findings**: `QA_findings.md`, `QA_findings_2.md`
+
+| Issue | Resolution | Status |
+|-------|------------|--------|
+| Logo duplication | Changed icon to GraduationCap | ✅ Fixed |
+| Non-functional CTAs | Added onClick handlers (11/11) | ✅ Fixed |
+| Small button text | Increased to 14px | ✅ Fixed |
+| Missing accessibility | Added aria-hidden to icons | ✅ Fixed |
+
+**Utility Functions**:
+```typescript
+// src/lib/utils.ts
+export function scrollToSection(sectionId: string): void {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
+}
+
+export function scrollToTop(): void {
+  window.scrollTo({ top: 0, behavior: "smooth" })
+}
+```
+
+**CTA Navigation Map**:
+| Button | Action |
+|--------|--------|
+| GET STARTED | scrollToSection("courses") |
+| EXPLORE SCP FUNDAMENTALS | scrollToSection("courses") |
+| VIEW ALL COURSES | scrollToSection("courses") |
+| REQUEST CORPORATE DEMO | scrollToSection("contact") |
+| CONTACT SALES | scrollToSection("contact") |
+| SCHEDULE CONSULTATION | scrollToSection("contact") |
+| ENROLL NOW | scrollToSection("courses") |
+| VIEW FULL TRAINING CALENDAR | scrollToSection("schedule") |
+
 ### 9.2 Backend Initialization
 1.  **Start Docker**: `docker-compose up -d` (PostgreSQL, Redis, MinIO)
 2.  **Virtual Environment**: `source /opt/venv/bin/activate`

@@ -138,12 +138,21 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 - ✅ Navigation functional
 - ✅ Mobile responsive (375px, 768px, 1440px)
 
+### QA Remediation Status
+- ✅ Logo duplication bug fixed (header & footer)
+- ✅ All 11 CTAs now functional with onClick handlers
+- ✅ Header button text increased to 14px
+- ✅ Accessibility labels added to decorative icons
+- ✅ Scroll utility functions implemented
+
 ### Deployment Checklist
 - [x] Build generated in `dist/`
 - [x] Responsive check: Mobile (375px), Tablet (768px), Desktop (1440px)
 - [x] Dark mode/Light mode variables verified
 - [x] Fast Refresh rules satisfied (no non-component exports in component files)
 - [x] API integration verified with live backend
+- [x] All CTAs functional (11/11)
+- [x] Logo renders correctly without duplication
 
 ---
 
@@ -155,6 +164,8 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 4.  **Icon Strategy**: Brand icons (LinkedIn, Twitter, etc.) are custom SVGs in `src/components/icons/` because Lucide excludes brand logos.
 5.  **Asset Cleanup**: Legacy `App.tsx`, `App.css`, and `index.css` were removed to eliminate conflict with `src/app/`.
 6.  **API Integration**: Complete frontend API layer with Axios, React Query, and Zustand for JWT management.
+7.  **Logo Fix**: Changed icon from `<span>i</span>` to `<GraduationCap>` Lucide icon to prevent "iiTrust Academy" duplication.
+8.  **CTA Wiring**: Added `scrollToSection()` utility and onClick handlers to all interactive buttons.
 
 ---
 
@@ -168,6 +179,9 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 *   Zustand auth store with persistence
 *   CourseCatalog component updated for API
 *   Visual design enhancements (shadows, typography, colors)
+*   E2E testing (9 test cases, 9 screenshots)
+*   QA remediation (logo fix, 11 CTAs wired, accessibility)
+*   Server configuration (port 5174, allowedHosts)
 
 ### 🔄 In Progress
 *   Loading skeleton components

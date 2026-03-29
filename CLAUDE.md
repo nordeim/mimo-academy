@@ -286,12 +286,30 @@ server: {
 1. ✅ ESLint errors resolved (component exports, useReducedMotion hook)
 2. ✅ TypeScript errors resolved (import.meta.env types, Lucide icons)
 3. ✅ Orphaned files removed (App.tsx, App.css, index.css)
+4. ✅ Logo duplication bug fixed (header & footer)
+5. ✅ All CTA buttons wired with onClick handlers (11/11)
+6. ✅ Header button text size increased (12px → 14px)
+7. ✅ Accessibility labels added to decorative icons
 
 ### Current State
 - All lint checks pass
 - Build completes successfully
 - UI renders correctly across viewports
 - Animations work with Framer Motion
+- All CTAs are functional
+- Logo renders correctly (no duplication)
+
+### Scroll Utility Functions
+```typescript
+import { scrollToSection, scrollToTop } from "@/lib/utils"
+
+// Scroll to section by ID
+scrollToSection("courses")
+scrollToSection("contact")
+
+// Scroll to top
+scrollToTop()
+```
 
 ### Potential Improvements
 - [ ] Add unit tests with Vitest
