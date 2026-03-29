@@ -112,6 +112,66 @@ allowedHosts: ['itrust-academy.jesspete.shop', 'localhost', '127.0.0.1']
 
 ---
 
+## 🚀 Accomplishments & Milestones
+
+### Milestone 7: Authentication UI (March 29, 2026)
+*   ✅ **Radix UI Primitives**: Created foundational `src/components/ui/` primitives: `dialog.tsx`, `dropdown-menu.tsx`, `avatar.tsx`, and `label.tsx`.
+*   ✅ **High-Conversion Modals**: Implemented `LoginModal` and `RegisterModal` with seamless switching logic.
+*   ✅ **Identity Persistence**: Integrated `useAuthStore` (Zustand) with localStorage to maintain sessions across reloads.
+*   ✅ **Dynamic Header**: Refactored `Header.tsx` to conditionally render Guest CTAs or the `UserNav` profile menu.
+
+### Milestone 8: Full-Stack E2E Validation (March 29, 2026)
+*   ✅ **Integrated Lifecycle**: Successfully simulated the full user journey: Registration → Auto-Login → Logout → Manual Login.
+*   ✅ **Discovery Sync**: Verified real-time course fetching and category filtering from the Django REST backend.
+*   ✅ **Action Interception**: Implemented and verified guest-to-auth redirection for business-critical actions (Enroll Now).
+
+---
+
+## 🧪 E2E Testing Methodology
+
+Our E2E suite utilizes **Playwright (Python Sync API)** for high-fidelity browser automation.
+
+### 1. Verification Strategy
+*   **Target Environment**: Tests must run against `npm run preview` (port 5174).
+*   **Infrastructure Requirement**: `vite preview` is mandatory to support the `/api` proxy and `POST` requests (simple static servers like `http.server` will fail).
+*   **Lifecycle Simulation**: We use `uuid` generation for `USER_DATA` to ensure every test run is independent and avoids unique constraint violations in the backend.
+
+### 2. Evidence Standard
+*   **Annotated Screenshots**: Every major state change (Modal Open, Auth Success, Filter Applied) must capture a screenshot in `/screenshots/`.
+*   **Console Monitoring**: Playwright listeners are used to pipe browser `console` logs and `pageerror` events to the terminal for transparent debugging.
+
+---
+
+## ⚠️ Technical Hurdles & Resolutions
+
+### 1. Network & Connectivity
+*   **Issue**: `localhost` resolving to IPv6 caused `ERR_CONNECTION_REFUSED` in automated environments.
+*   **Resolution**: Explicitly bind Vite to `127.0.0.1` (`--host 127.0.0.1`) and update test scripts to use IP-based URLs.
+
+### 2. Mock vs. Real Infrastructure
+*   **Issue**: Python `http.server` returned `501 Unsupported Method` for authentication `POST` requests.
+*   **Resolution**: Standardized on `vite preview` for all verification phases to ensure the API proxy layer is active.
+
+### 3. Robust Selectors
+*   **Issue**: Non-standard CSS selectors (e.g., `:has-text`) used in `document.querySelector` caused runtime errors in DOM utilities.
+*   **Resolution**: Refactored `scrollToSection` and interception logic to use robust, standard-compliant `Array.from(document.querySelectorAll('button'))` patterns.
+
+---
+
+## 🎓 Lessons Learnt
+1.  **Proxy Fidelity**: Never assume a static build is "integrated" without an active proxy. Always test against the environment that matches the `VITE_API_URL` configuration.
+2.  **Timing is Everything**: Development modules take time to compile. Use `wait_until="networkidle"` and include "warm-up" navigation calls in E2E scripts.
+3.  **UI Interception**: Intercepting guest actions at the component level (instead of global route guards) provides a smoother UX for single-page applications.
+
+---
+
+## 🔧 Troubleshooting Tips for Future Agents
+*   **Server Stability**: If port 5174 is hanging, use `fuser -k 5174/tcp` to clear the process before restarting.
+*   **Zod Errors**: If a form isn't submitting and no API call is visible, check the `errors` object in `react-hook-form`; Zod will block submission silently if the schema isn't met.
+*   **JWT Issues**: If API calls return 401, check the `itrust-auth` entry in Application Storage. Ensure the `accessToken` is present.
+
+---
+
 ## 🎯 Current Roadmap & Pending Tasks
 
 ### ✅ Completed

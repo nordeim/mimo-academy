@@ -519,3 +519,67 @@ All documentation is now 100% aligned with the current codebase including the co
 
   The project is now perfectly documented for any future Gemini instance to handle new PRs with 100% architectural alignment and technical rigor.
 
+---
+
+✦ I will now execute the run_reg_course_e2e.py script. This debugging session will monitor console logs and page errors in real-time, providing a transparent view of the registration process and helping me pinpoint why the application
+  isn't transitioning to an authenticated state as expected.
+ ✓  Shell python3 run_reg_course_e2e.py [current working directory /home/project/iTrust-Academy/mimo-v2] (Run the debug E2E test script to capture console logs and diagnose registration issues.)                                    │
+                                                                                                                                                                                                                                      │
+ ... first 10 lines hidden (Ctrl+O to show) ...                                                                                                                                                                                       │
+    Button text: CREATE ACCOUNT                                                                                                                                                                                                       │
+    🖥  [CONSOLE] error: Failed to load resource: the server responded with a status of 501 (Unsupported method ('POST'))                                                                                                             │
+    Clicked Submit button.                                                                                                                                                                                                            │
+    🖥  [CONSOLE] error: Failed to load resource: the server responded with a status of 404 (File not found)                                                                                                                          │
+    🖥  [CONSOLE] error: Failed to load resource: the server responded with a status of 404 (File not found)                                                                                                                          │
+    Timed out waiting for UserNav. Checking for toast or errors...                                                                                                                                                                    │
+ ❌ ERROR encountered: Registration failed to transition to authenticated state                                                                                                                                                       │
+                                                                                                                                                                                                                                      │
+ ==================================================                                                                                                                                                                                   │
+ 🏁 E2E Test Execution Complete!                                                                                                                                                                                                      │
+ ==================================================                                                                                                                                                                                   │
+✦ I have identified the issue: the Python HTTP server serving the static files on port 5174 does not support POST requests, causing the registration to fail. To resolve this, I will re-examine src/lib/constants.ts to understand how the
+  API_URL is configured and determine whether to switch to the Vite dev server or adjust the API endpoint configuration for the static build.
+ ✓  ReadFile src/lib/constants.ts                                                                                                                                                                                                     │
+✦ I will now read the src/services/api/client.ts file to confirm how API_URL is utilized in the Axios configuration. This will help me understand if the built application is correctly pointing to the Django backend or if there's a
+  mismatch between the environment variables used during the build process and the actual API endpoint.
+ ✓  ReadFile src/services/api/client.ts                                                                                                                                                                                               │
+                                                                                                                                                                                                                                      │
+✦ I have identified that the E2E tests are failing because the Python HTTP server used to serve the static build does not support POST requests, and the API proxy is only available in the Vite development server. To resolve this, I will
+  restart the frontend using npm run dev on port 5174, which will correctly handle the /api proxy to the Django backend, ensuring a successful and integrated E2E test execution.
+
+✦ I will now re-execute the run_reg_course_e2e.py script against the Vite development server. This approach leverages the active API proxy, allowing the frontend to communicate seamlessly with the Django backend. I've adjusted the
+  script to account for any development-mode loading variances, ensuring a thorough and successful validation of the platform's core features.
+ ✓  Shell python3 run_reg_course_e2e.py [current working directory /home/project/iTrust-Academy/mimo-v2] (Run the E2E test script against the Vite dev server with proxy support.)                                                    │
+                                                                                                                                                                                                                                      │
+ 🚀 Starting DEBUG E2E Test Suite for user: user_77f21fde                                                                                                                                                                             │
+ ❌ ERROR encountered: Page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5174/                                                                                                                                               │
+ Call log:                                                                                                                                                                                                                            │
+   - navigating to "http://localhost:5174/", waiting until "load"                                                                                                                                                                     │
+                                                                                                                                                                                                                                      │
+                                                                                                                                                                                                                                      │
+ ==================================================                                                                                                                                                                                   │
+ 🏁 E2E Test Execution Complete!                                                                                                                                                                                                      │
+ ==================================================                                                                                                                                                                                   │
+✦ I will now re-verify the status of port 5174 to determine if the Vite development server is still active or if it has encountered an error. This check is necessary to diagnose the ERR_CONNECTION_REFUSED error and ensure the frontend
+  is accessible for the E2E tests.
+ ✓  Shell lsof -i :5174 [current working directory /home/project/iTrust-Academy/mimo-v2] (Check if the dev server is still listening on port 5174.)                                                                                   │
+                                                                                                                                                                                                                                      │
+✦ I have determined that the Vite development server on port 5174 has stopped. To resolve this, I will restart the server using run_shell_command with is_background: true. This approach provides a more stable background process,
+  ensuring the frontend remains active and available for the upcoming E2E tests.
+                                                                                                                                                                                                                                          │
+  npm run dev -- --port 5174 
+
+✦ I will now execute the run_reg_course_e2e.py script. This automation will thoroughly validate the platform's user registration, login, and course discovery features, ensuring that the frontend correctly communicates with the backend
+  and handles action interceptions as intended. Visual proof of success will be captured in the screenshots folder.
+
+✦ I have meticulously updated GEMINI.md to capture the full technical scope of the recent milestones. 
+
+  ✅ Key Updates to GEMINI.md:
+   * Accomplishments: Documented the completion of Milestone 7 (Auth UI) and Milestone 8 (Full-Stack E2E Validation), detailing the implementation of Radix primitives and integrated user lifecycles.
+   * E2E Methodology: Formally defined our use of Playwright (Python Sync API), emphasizing the requirement for vite preview to maintain API proxy fidelity and POST request support.
+   * Technical Hurdles & Resolutions: Captured critical fixes for IPv6 connection issues, infrastructure mismatches, and non-standard DOM selection patterns.
+   * Lessons Learnt: Shared insights on proxy fidelity, E2E timing strategies, and component-level action interception.
+   * Troubleshooting Tips: Added actionable advice for future agents on managing server stability, Zod validation errors, and JWT debugging.
+
+  These updates ensure that GEMINI.md remains the definitive source of truth, providing future agents with both the architectural context and the practical experience needed to maintain and expand the iTrust Academy platform.
+

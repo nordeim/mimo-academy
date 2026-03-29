@@ -1,33 +1,38 @@
-# E2E Test Plan - Registration & Course Management
+# E2E Test Plan - User Accounts & Course Discovery
 
 > **Date**: March 29, 2026
 > **Project**: iTrust Academy
 > **Target URL**: http://localhost:5174/
 > **Backend URL**: http://localhost:8000/api/v1/
+> **Status**: UI-Complete Validation
 
 ---
 
 ## 📋 Test Plan Overview
 
-This plan validates the core business logic of user registration and course discovery. Since the authentication UI is currently in the "Planned" phase, testing will involve a hybrid approach:
-1.  **API Validation**: Direct testing of the registration and auth endpoints.
-2.  **UI Discovery Validation**: Functional testing of the Course Catalog and category filtering.
+This plan validates the end-to-end user journey from initial discovery to account creation and authenticated state. With the implementation of the Authentication UI (Milestone 7), we now transition from hybrid testing to **Full UI Validation**.
 
 ---
 
-## 🧪 Suite 1: User Registration & Auth (API Level)
+## 🧪 Suite 1: User Identity & Session (UI Level)
 
-**Objective**: Confirm that the backend correctly handles user identity and token issuance.
+**Objective**: Confirm that the modal-based authentication system correctly manages user identity and JWT lifecycle.
 
-### Test Case: API-101 - User Registration
-- **Given**: Valid registration data (unique email/username).
-- **When**: POST request sent to `/api/v1/auth/register/`.
-- **Then**: API should return 201 Created with a valid user ID.
+### Test Case: UI-101 - User Registration
+- **Given**: User is a guest on the landing page.
+- **When**: User clicks "Register" in the header, fills the 6-field form correctly, and submits.
+- **Then**: Register modal should close, a success toast should appear, and the header should show the `UserNav` (avatar).
+- **Verify**: `itrust-auth` key in `localStorage` contains valid tokens.
 
-### Test Case: API-102 - Obtain JWT Tokens
-- **Given**: Registered user credentials.
-- **When**: POST request sent to `/api/v1/auth/token/`.
-- **Then**: API should return `access` and `refresh` tokens.
+### Test Case: UI-102 - User Login
+- **Given**: User has an existing account.
+- **When**: User clicks "Sign In", enters valid credentials, and submits.
+- **Then**: Login modal should close and the authenticated UI state should be active.
+
+### Test Case: UI-103 - Form Validation (Zod)
+- **Given**: Auth modals are open.
+- **When**: User submits empty fields or invalid email formats.
+- **Then**: Red validation messages should appear below inputs, and the submit button should remain in a non-loading state.
 
 ---
 
@@ -45,35 +50,36 @@ This plan validates the core business logic of user registration and course disc
 - **Given**: Course catalog is loaded.
 - **When**: User clicks a category filter button (e.g., "Security").
 - **Then**: The grid should update to show only courses belonging to that category.
-- **Verify**: Active filter button has the primary brand color background.
 
 ---
 
-## 🧪 Suite 3: Enrollment Readiness (Hybrid)
+## 🧪 Suite 3: Contextual Action Interception (UI Level)
 
-**Objective**: Validate the data structure and hooks are ready for the upcoming Enrollment UI.
+**Objective**: Validate the "Action Interception" logic for high-conversion guest flows.
 
-### Test Case: API-301 - Course Detail Retrieval
-- **Given**: A valid course slug.
-- **When**: GET request sent to `/api/v1/courses/{slug}/`.
-- **Then**: Detailed course information including modules and duration should be returned.
+### Test Case: UI-301 - Guest Enrollment Trigger
+- **Given**: User is NOT authenticated.
+- **When**: User clicks "Enroll Now" on a Course Card.
+- **Then**: Instead of enrolling, the `LoginModal` should automatically open.
+- **Verify**: Modal title says "Welcome Back" or "Sign in to Enroll".
 
 ---
 
 ## 🛠️ Tools & Evidence
 
-- **Tool**: `agent-browser` / `mcp_chrome-devtools`
+- **Tool**: `playwright` (Python Sync API)
 - **Evidence**:
-    - `registration-api-success.log`
-    - `course-catalog-initial.png`
-    - `course-catalog-filtered.png`
-    - `course-api-response.json`
+    - `auth-registration-flow.png`
+    - `auth-validation-errors.png`
+    - `catalog-api-integration.png`
+    - `action-interception-modal.png`
 
 ---
 
 ## ✅ Success Criteria
 
-- [ ] All API tests return 2xx status codes.
-- [ ] UI correctly displays course data fetched from backend.
-- [ ] Filtering logic accurately updates the course grid.
-- [ ] No JavaScript errors in the console during browsing.
+- [ ] User can create an account and log in via UI modals.
+- [ ] Session persists after a page reload.
+- [ ] Course data is dynamically populated from the Django backend.
+- [ ] Guest actions (Enroll) correctly trigger the auth flow.
+- [ ] 0 console errors during the entire user journey.
