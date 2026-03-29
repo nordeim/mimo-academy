@@ -4,7 +4,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
+import { cn, scrollToSection } from "@/lib/utils"
 
 const COHORTS = [
   {
@@ -155,7 +155,12 @@ export function TrainingSchedule() {
                     <div className="text-2xl font-bold">{cohort.price}</div>
                     <div className="text-xs text-muted-foreground">per person</div>
                   </div>
-                  <Button size="sm">Enroll Now</Button>
+                  <Button 
+                    size="sm"
+                    onClick={() => scrollToSection("courses")}
+                  >
+                    Enroll Now
+                  </Button>
                 </div>
               </div>
             </motion.div>
@@ -169,7 +174,11 @@ export function TrainingSchedule() {
           viewport={{ once: true }}
           className="text-center mt-14"
         >
-          <Button variant="outline" size="lg">
+          <Button 
+            variant="outline" 
+            size="lg"
+            onClick={() => scrollToSection("contact")}
+          >
             View Full Training Calendar
           </Button>
         </motion.div>
