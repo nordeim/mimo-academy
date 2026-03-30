@@ -163,10 +163,25 @@ Our E2E suite utilizes **Playwright (Python Sync API)** for high-fidelity browse
 ## 🎯 Current Roadmap & Pending Tasks
 
 ### ✅ Completed
-*   Full API integration & JWT authentication
-*   Advanced UX remediation (Milestone 9)
-*   33/33 E2E test pass rate (100%)
-*   Automated QA validation suite
+*   Full API integration with Django backend
+*   JWT authentication with silent token refresh
+*   Authentication UI (Login/Register Modals)
+*   User Profile navigation and dropdown
+*   Zustand auth store with persistence
+*   Visual design enhancements & QA remediation (Phase 1-8)
+*   100% E2E test pass rate (33/33 total)
+*   ContactModal system implemented (3 modals)
+*   ComingSoonModal system implemented (graceful degradation)
+*   Social links fixed (external navigation)
+*   Platform cards enhanced (CustomEvent filtering)
+*   QA Remediation Phase 9 complete (12/15 elements)
+*   Bidirectional data transformers (snake_case ↔ camelCase)
+*   Footer complete rewrite with modals & social links
+*   Dialog accessibility warnings eliminated (11 → 0 warnings)
+*   Toaster mounted in app.tsx for form submission feedback
+*   Modals refactored to shared Dialog components
+*   WCAG 2.1 compliance verified
+*   100% UI/UX usability (47/47 elements passed)
 
 ### 🔄 In Progress
 *   Category-based vendor filtering refinement
@@ -175,8 +190,8 @@ Our E2E suite utilizes **Playwright (Python Sync API)** for high-fidelity browse
 
 ### 📋 Planned (Next Directives)
 1.  **Course Detail Pages**: Dynamic routes for course curriculums.
-2.  **Enrollment Flow**: Full Stripe payment integration.
-3.  **Profile Management**: User profile editing page.
+2.  **Enrollment Flow**: Course enrollment integration with Stripe payments.
+3.  **Profile Management**: Dedicated page for user profile editing.
 4.  **Dark Mode Toggle**: Theme switching logic.
 
 ---
