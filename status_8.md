@@ -749,3 +749,70 @@ Files modified (6): package.json, src/lib/utils.ts, src/services/api/types.ts, s
 
   The iTrust Academy platform is now 100% aligned across its codebase, technical specifications, and strategic analysis reports. It stands as a robust, accessible, and production-ready application. 🚀🎓
 
+Now let me verify all files are consistent with a final lint and build check.
+# Final verification: tests + lint
+$ npm test 2>&1 | tail -5 && npm run lint 2>&1 | tail -3
+ Test Files  3 passed (3)
+      Tests  14 passed (14)
+   Start at  00:38:15
+   Duration  3.21s (transform 443ms, setup 350ms, import 1.34s, tests 310ms, environment 4.30s)
+> frontend@0.0.0 lint
+> eslint .
+Thinking: All checks pass: 14/14 tests, 0 lint errors. Let me update the todo list.
+# Todos
+Update README.md with remediation achievements
+Update CLAUDE.md with remediation achievements
+Update GEMINI.md with remediation achievements
+Update Project_Architecture_Document.md with remediation achievements
+Update ACCOMPLISHMENTS.md with remediation achievements
+Thinking: All 5 documents updated. Let me provide a summary.
+All 5 documents updated with the Milestone 12 remediation achievements. Here's what was added to each:
+README.md:
+- Added "Unit Tests: 14/14 pass" to Key Achievements table
+- Added skip-to-content + error boundaries to Features
+- Added not-found.tsx to project structure tree
+- Added test and test:watch to Available Scripts table
+- Added Unit Testing section with test suite breakdown (3 files, 14 tests)
+- Updated Navigation to note "7 routes + 404 catch-all"
+CLAUDE.md:
+- Added Vitest to Key Characteristics
+- Updated parseDuration/formatDuration in Critical Files table
+- Added all 4 hooks to Hooks section
+- Added npm test / npm run test:watch to Available Scripts
+- Updated testing status (14/14 unit tests, 33/33 E2E)
+- Added 8 new FIXED issues (#24-#31)
+- Updated Potential Improvements with completed items
+- Bumped version to 2.1.0
+GEMINI.md:
+- Updated Last Synchronized to April 1, 2026
+- Added pages directory + not-found.tsx to core structure
+- Added Milestone 10: Comprehensive QA & Codebase Remediation with 9 sub-items
+- Added 7 new completed items to roadmap
+- Updated In Progress items
+Project_Architecture_Document.md:
+- Updated version to 2.1.0, status to "+ TDD Infrastructure"
+- Added not-found.tsx to file tree
+- Updated courses.ts description to include VENDOR_TO_CATEGORY
+- Updated utils.ts description to include parseDuration, formatDuration
+- Updated layout.tsx description to include SkipLink
+- Added 3 new files to Key File Descriptions table
+- Added npm test step to initialization SOP
+- Added 2 new critical coding rules (vendor mapping, TDD)
+ACCOMPLISHMENTS.md:
+- Added Milestone 12 with full detail: 7 phases, lessons learned, files created (6), files modified (10)
+- Added 3 new blockers to Blockers table (Vitest dirs, react-refresh, QueryClient)
+- Added Testing lessons to Lessons Learned
+- Updated Recommended Next Steps with completed items
+- Bumped version to 2.1.0
+Final verification: npm test — 14/14 pass | npm run lint — 0 errors
+
+AGENTS.md updated — 147 lines. No Cursor or Copilot rules found. Here's what changed from the previous version:
+Added:
+- Unit test commands: npm test, npm run test:watch, single file (npx vitest run src/lib/__tests__/utils.test.ts), single test by name (-t "parses '5 days'"), file + name filter combo
+- Testing Conventions section: Vitest globals, setup file, jsdom config, provider wrapping pattern, TDD workflow, example test code
+- File Organization tree: complete src/ directory map with all files and their purposes
+- Common Pitfalls section: 5 documented gotchas from the remediation work (react-refresh exports, Vitest dir scanning, QueryClient in tests, duration display, filter slug alignment)
+- npm test added to pre-commit checklist
+- Shared Data note in Architecture section
+No Cursor/Copilot rules: Checked .cursorrules, .cursor/rules/, .github/copilot-instructions.md — none exist in this repo.
+
